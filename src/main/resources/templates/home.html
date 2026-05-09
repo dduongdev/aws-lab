@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Trang chủ</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #eef2f5; }
+        .container { max-width: 600px; margin: 120px auto; background: white; padding: 28px; border-radius: 10px; box-shadow: 0 2px 18px rgba(0,0,0,0.08); }
+        a { display: inline-block; margin-top: 18px; color: #0077cc; text-decoration: none; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Chào mừng, <span th:text="${username}"></span>!</h1>
+    <p>Bạn đã đăng nhập thành công bằng username và password.</p>
+    <a th:href="@{/logout}">Đăng xuất</a>
+</div>
+</body>
+</html>

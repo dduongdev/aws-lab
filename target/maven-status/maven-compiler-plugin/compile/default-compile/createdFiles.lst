@@ -1,0 +1,3 @@
+com\example\loginapp\service\AuthService.class
+com\example\loginapp\LoginAppApplication.class
+com\example\loginapp\controller\AuthController.class
