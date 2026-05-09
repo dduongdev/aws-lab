@@ -1,11 +1,15 @@
 CREATE DATABASE IF NOT EXISTS userdb;
+
 USE userdb;
 
 CREATE TABLE IF NOT EXISTS users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    username TEXT NOT NULL UNIQUE,
-    password TEXT NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
 );
 
-INSERT OR IGNORE INTO users (username, password) VALUES ('admin', 'password123');
-INSERT OR IGNORE INTO users (username, password) VALUES ('user', 'userpass');
+INSERT IGNORE INTO users (username, password)
+VALUES ('admin', 'password123');
+
+INSERT IGNORE INTO users (username, password)
+VALUES ('user', 'userpass');
