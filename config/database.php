@@ -4,6 +4,9 @@
  * Khi deploy lên AWS (RDS), sửa các thông số dưới đây
  */
 
+// Load .env trước khi đọc cấu hình
+require_once __DIR__ . '/loadenv.php';
+
 define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
 define('DB_PORT', getenv('DB_PORT') ?: '3306');
 define('DB_NAME', getenv('DB_NAME') ?: 'user_auth');
