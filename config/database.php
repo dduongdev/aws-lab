@@ -36,7 +36,7 @@ function getDB(): PDO
 
 
             PDO::MYSQL_ATTR_SSL_CA   => true,  
-            PDO::MYSQL_ATTR_SSL_CERT => false,  
+            PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
         ];
 
         try {
