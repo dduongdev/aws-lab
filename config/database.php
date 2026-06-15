@@ -1,11 +1,8 @@
 <?php
 /**
  * Cấu hình kết nối MySQL
- * Hỗ trợ .env — copy .env.example thành .env và sửa thông số
+ * Khi deploy lên AWS (RDS), sửa các thông số dưới đây
  */
-
-// Load .env (nếu có) — ưu tiên env vars hệ thống hơn .env
-require_once __DIR__ . '/loadenv.php';
 
 define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
 define('DB_PORT', getenv('DB_PORT') ?: '3306');
@@ -34,10 +31,9 @@ function getDB(): PDO
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES   => false,
 
-            // SSL — dùng cho AWS RDS hoặc MySQL có SSL
-            // Tuỳ chỉnh qua .env: DB_SSL_CA=true, DB_SSL_CERT=false
-            PDO::MYSQL_ATTR_SSL_CA   => filter_var(getenv('DB_SSL_CA') ?: 'true', FILTER_VALIDATE_BOOLEAN),
-            PDO::MYSQL_ATTR_SSL_CERT => filter_var(getenv('DB_SSL_CERT') ?: 'false', FILTER_VALIDATE_BOOLEAN),
+
+            PDO::MYSQL_ATTR_SSL_CA   => true,  
+            PDO::MYSQL_ATTR_SSL_CERT => false,  
         ];
 
         try {
